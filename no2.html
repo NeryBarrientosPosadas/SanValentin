@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Serás mía...</title>
+</head>
+<body>
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="21443416" data-share-method="host" data-aspect-ratio="0.95625" data-width="100%">
+            <a href="https://tenor.com/view/white-cat-cats-hell-yeah-cat-gif-21443416">White Cat Cats GIF</a> from 
+            <a href="https://tenor.com/search/white+cat-gifs">White Cat GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
+        <h1>Serás mía a las buenas o a las malas 😈</h1>
+        
+        <div class="btn">
+            <form id="formSI" action="https://formspree.io/f/mnnjvolv" method="POST">
+                <input type="hidden" name="respuesta" value="SI">
+                <button type="submit">SI</button>
+            </form>
+            <a href="#" id="btn-random">NO</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Manejo del formulario
+        document.getElementById('formSI').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'si.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'si.html'; // Redirección igualmente
+            });
+        });
+    </script>
+</body>
+</html>

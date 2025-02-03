@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Piensatelo...</title>
+</head>
+<body>
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="18148463711766725559" data-share-method="host" data-aspect-ratio="1.0641" data-width="100%">
+            <a href="https://tenor.com/view/peach-cat-crying-peach-goma-peach-and-goma-mochi-mochi-peach-cat-gif-gif-18148463711766725559">Peach Cat Crying Peach Goma Sticker</a> from 
+            <a href="https://tenor.com/search/peach+cat+crying-stickers">Peach Cat Crying Stickers</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
+        <h1>¿Está segura? Piénselo bien 😥</h1>
+        <p>¿Quiere ser mi compañía para San Valentín? 🥰</p>
+        
+        <div class="btn">
+            <form id="formSI" action="https://formspree.io/f/mnnjvolv" method="POST">
+                <input type="hidden" name="respuesta" value="SI">
+                <button type="submit">SI</button>
+            </form>
+            <a href="no2.html">NO</a>
+        </div>
+    </div>
+
+    <script>
+        // Manejo del formulario
+        document.getElementById('formSI').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'si.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'si.html'; // Redirección igualmente
+            });
+        });
+    </script>
+</body>
+</html>

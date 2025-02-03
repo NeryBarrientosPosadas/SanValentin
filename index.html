@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>¿Quiere ser mi compañía para San Valentín?</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="2871482820979272488" data-share-method="host" data-aspect-ratio="1.28351" data-width="100%">
+            <a href="https://tenor.com/view/mochi-pet-mochi-cat-cute-squiddy-gif-2871482820979272488">Mochi Pet GIF</a> from 
+            <a href="https://tenor.com/search/mochi-gifs">Mochi GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
+        <h1>Mi Niña Preciosa</h1>
+        <p>¿Quiere ser mi compañía para San Valentín? 🥰</p>
+        
+        <div class="btn">
+            <form id="formSI" action="https://formspree.io/f/mnnjvolv" method="POST">
+                <input type="hidden" name="respuesta" value="SI">
+                <button type="submit">SI</button>
+            </form>
+            <a href="no1.html">NO</a>
+        </div>
+    </div>
+
+    <script>
+        // Manejo del formulario
+        document.getElementById('formSI').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'si.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'si.html'; // Redirección igualmente
+            });
+        });
+    </script>
+</body>
+</html>
